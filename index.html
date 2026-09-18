@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى غموض 🔥❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: #080003;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 85, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .heart-bg {
+            position: fixed;
+            top: -10vh;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 8px #ff0055);
+            animation: fall linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        /* شاشة كلمة السر */
+        #login-screen {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 0, 2, 0.96);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            backdrop-filter: blur(15px);
+        }
+
+        .login-card {
+            background: rgba(255, 0, 85, 0.03);
+            border: 1px solid rgba(255, 0, 85, 0.4);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.2);
+            max-width: 380px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+        }
+
+        .login-card h2 {
+            margin-bottom: 1.5rem;
+            color: #ff0055;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.6);
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 30px;
+            border: 1px solid #ff0055;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            outline: none;
+        }
+
+        .login-card button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(45deg, #ff0055, #ff527b);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+            transition: 0.3s ease;
+        }
+
+        .login-card button:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.8);
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(20, 0, 8, 0.65);
+            border: 1px solid rgba(255, 0, 85, 0.3);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 0, 85, 0.15);
+            z-index: 1;
+            text-align: center;
+            display: none;
+        }
+
+        h1 {
+            color: #ff0055;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(255, 0, 85, 0.8);
+        }
+
+        .romantic-text {
+            font-size: 1.35rem;
+            line-height: 2.2;
+            color: #fff0f3;
+            margin-bottom: 2.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 20px;
+            border-right: 5px solid #ff0055;
+            border-left: 1px solid rgba(255, 0, 85, 0.2);
+            box-shadow: inset 0 0 15px rgba(255, 0, 85, 0.1);
+        }
+
+        /* معرض الصور الخاص */
+        .gallery-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .photo-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 0, 85, 0.4);
+            border-radius: 25px;
+            padding: 1.5rem;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.25);
+        }
+
+        .photo-card img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            transition: 0.4s ease;
+        }
+
+        .photo-card img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+        }
+
+        .photo-caption {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #ffccd5;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
+        }
+
+        .section-title {
+            color: #ff527b;
+            margin: 2rem 0 1.2rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(255, 82, 123, 0.4);
+        }
+
+        /* الأزرار التفاعلية */
+        .interactive-btn {
+            background: linear-gradient(45deg, rgba(255, 0, 85, 0.2), rgba(255, 82, 123, 0.2));
+            border: 2px solid #ff0055;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+        }
+
+        .interactive-btn:hover {
+            background: #ff0055;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+            transform: translateY(-2px);
+        }
+
+        #love-quote, #surprise-msg {
+            font-size: 1.3rem;
+            color: #ffccd5;
+            min-height: 50px;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(255, 204, 213, 0.3);
+        }
+
+        /* رسالة مخفية */
+        .hidden-message {
+            background: rgba(255, 0, 85, 0.1);
+            border: 1px dashed #ff0055;
+            padding: 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.5s;
+            color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        .hidden-message:hover {
+            color: #fff;
+            background: rgba(255, 0, 85, 0.4);
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+        }
+
+        /* شريط الذكريات */
+        .timeline {
+            text-align: right;
+            margin-bottom: 2rem;
+            padding-right: 15px;
+            border-right: 3px solid #ff0055;
+        }
+
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '🔥';
+            position: absolute;
+            right: -25px;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+        .timeline-item p {
+            color: #ffccd5;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* مشغل الموسيقى */
+        .music-section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 0, 85, 0.2);
+            margin-top: 2rem;
+        }
+
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .music-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 85, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .music-btn.active, .music-btn:hover {
+            background: #ff0055;
+            border-color: #ff0055;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 0, 85, 0.3);
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #error-msg {
+            color: #ff0055;
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: none;
+            text-shadow: 0 0 5px rgba(255, 0, 85, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شاشة كلمة السر -->
+    <div id="login-screen">
+        <div class="login-card">
+            <h2>سِر العاصفة 🔥</h2>
+            <p style="margin-bottom: 1.2rem; color: #bbb;">اكتبي كلمة السر يا غموض عشان تفتحي الجحيم الوردي:</p>
+            <input type="password" id="password-input" placeholder="كلمة السر...">
+            <button onclick="checkPassword()">افتحي قلبي 🔥</button>
+            <div id="error-msg">كلمة السر غلط يا شقية! جربي تاني 😉</div>
+        </div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container" id="main-content">
+        <h1>إلى غموض قلبي وكياني 🔥❤️</h1>
+        
+        <div class="romantic-text">
+            رغم إننا نعرف بعض من فترة قريبة.. بس والله أنتِ خطفتي قلبي وعقلي من أول لحظة بدون أي مقدمات!<br><br>
+            دخلتي حياتي وبقيتي أنتِ العاصفة اللي شقلبت كل حاجة فيا. أنا بقيت مجنون بيكي، مابشوفش ولا بفكر في حد غيرك. تفاصيلك، ضحكتك، شقاوتك، وحتى نظرة عينيكي اللي بتولع في قلبي نار مابتتطفيش.<br><br>
+            أنتِ مش مجرد حب، أنتِ حالة عشق استثنائية، أنتِ الرغبة اللي مابتخلصش والأمان اللي كنت بدور عليه. كل كلمة بتطلعيها، كل حركة بتعمليها، بتخليني أدوب فيكي أكتر وأكتر. أنتِ العشق اللي تمنيته طول عمري ومستعد أعيش كل عمري الجاي تحت أمر عيونك.
+        </div>
+
+        <!-- قسم معرض الصور مع الكلام المميز والجريء -->
+        <h3 class="section-title">📸 صوركِ اللي بتدوبني</h3>
+        <div class="gallery-section">
+            
+            <!-- الصورة الأولى -->
+            <div class="photo-card">
+                <img src="https://www.image2url.com/r2/default/images/1789771359723-649b6482-91db-4939-85cb-38c1ee3534b3.jpg" alt="غموض 1">
+                <div class="photo-caption">
+                    شقاوتكِ ورقتكِ في الصورة دي بتطير العقل 🔥<br>
+                    كل تفصيلة فيكي بتخليني أضعف قدامك ومابقاش قادر أسيطر على مشاعري.. أنتِ ناري وعشقي الوحيد يا غموض.
+                </div>
+            </div>
+
+            <!-- الصورة الثانية -->
+            <div class="photo-card">
+                <img src="https://www.image2url.com/r2/default/images/1789771692364-d63632e8-66d4-44a1-8f18-afd27f9d8584.jpg" alt="غموض 2">
+                <div class="photo-caption">
+                    الصورة دي بالذات ليها سحر تاني خالص على قلبي.. 🔥😍<br>
+                    نظرة عينيكي فيها كمية جمال وفتنة الجاهزة تخليني أسيب الدنيا كلها وأجي أستخبى في حضنك.<br>
+                    كل ما أركز في ملامحك بحس إن قلبي بينبض بسرعة وببقى عايز أقولك إنك أحلى وألذ حاجة حصلت في حياتي كلها.. أنتِ ملكة قلبي بلا منازع!
+                </div>
+            </div>
+
+            <!-- الصورة الثالثة المضافة حديثاً -->
+            <div class="photo-card">
+                <img src="https://www.image2url.com/r2/default/images/1789771777536-238e11e6-9ce2-45f5-8f5b-a530d96a8390.jpg" alt="غموض 3">
+                <div class="photo-caption">
+                    يا بختي بيكي ويا كبر حظي إنك بقيتي في دنيتي.. ❤️🔥<br>
+                    الصورة دي بتثبتلي في كل مرة بشوفها إن الجمال والأنوثة اتخلقوا عشانك أنتِ وبس.<br>
+                    طلتك بتولع فيا مشاعر جارفة وتخليني مجنون بيكي وبكل حتة فيكي.. بحبك وبموت فيكي يا غموض يا أحلى ناري في الدنا!
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ميزة 1: الرسالة المخفية -->
+        <h3 class="section-title">🤫 سر بيني وبينك</h3>
+        <div class="hidden-message">
+            (مرري إيدك هنا عشان تشوفي السر)<br><br>
+            "لو تعرفي النار اللي بتبقى جوايا لما بشوفك.. كنتِ هتعرفي إن كل كلام الدنيا مش هيكفي يوصف اللي بحسه ناحيتك. أنا كلي ملكك يا غموض."
+        </div>
+
+        <!-- ميزة 2: شريط المشاعر -->
+        <h3 class="section-title">✨ حكايتي معاكي</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p><strong>أول مرة عرفتك:</strong> حسيت إن في زلزال ضرب قلبي، مكنتش فاهم إزاي حد يدخل حياتي بالسرعة والقوة دي.</p>
+            </div>
+            <div class="timeline-item">
+                <p><strong>لما بشوفك:</strong> عيني مابتنزلش من عليكي، ببقى عايز أخبكي جوايا ومحدش يشوفك غيري.</p>
+            </div>
+            <div class="timeline-item">
+                <p><strong>دلوقتي:</strong> أنتِ بقيتي الإدمان اللي مقدرش أعيش من غيره، كل ثانية بعيد عنك بحس إن روحي ناقصة.</p>
+            </div>
+        </div>
+
+        <!-- ميزة 3: الأزرار التفاعلية المتغيرة -->
+        <h3 class="section-title">🔥 اعترافات خاصة لغموض</h3>
+        <button class="interactive-btn" onclick="generateQuote()">دوسي هنا وشوفي السر الجديد ❤️</button>
+        <p id="love-quote">اضغطي الزرار واكتشفي الكلام اللي طالع من جوه قلبي...</p>
+
+        <button class="interactive-btn" style="background: transparent; border-color: #ff527b;" onclick="generateSurprise()">بصي في عيني ودوسي هنا 😉</button>
+        <p id="surprise-msg"></p>
+
+        <!-- مشغل الأغاني -->
+        <div class="music-section">
+            <h3 class="section-title" style="margin-top: 0;">🎶 أغاني العشق</h3>
+            <div class="music-controls">
+                <button class="music-btn active" onclick="playSong('hnK-frJO1X8', this)">جورج وسوف - حلف القمر</button>
+                <button class="music-btn" onclick="playSong('u7MxCuYPQT4', this)">الأغنية الثانية</button>
+            </div>
+            <div class="video-container">
+                <iframe id="youtube-player" src="https://www.youtube.com/embed/hnK-frJO1X8?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            const error = document.getElementById('error-msg');
+            
+            if (input === 'العاصفه') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                error.style.display = 'block';
+            }
+        }
+
+        document.getElementById('password-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            heart.innerHTML = '🔥';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 350);
+
+        function playSong(videoId, btn) {
+            const player = document.getElementById('youtube-player');
+            player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+            const buttons = document.querySelectorAll('.music-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const quotes = [
+            "غموض.. أنتِ الدلع كله، الشقاوة اللي بتجنني، والرقة اللي بتدوبني.",
+            "لو كان للفتنة اسم، كان هيبقى غموض.. جمالك بيسحرني وبياخدني لعالم تاني.",
+            "كل ما بقرب منك بحس إن النار اللي في قلبي بتزيد.. أنا بموت فيكي.",
+            "مش قادرة أقاوم نظرة عينيكي ولا شفايفك اللي بتنطق بأجمل ضحكة.",
+            "أنتِ مش بس غموض.. أنتِ العاصفة اللي اجتاحت قلبي وملت كل دنيايا حب ورغبة."
+        ];
+
+        const surprises = [
+            "بحبك لدرجة إني بغير عليكي من الهوا اللي بيلمسك.",
+            "نفسي أخدك في حضني ومسيبكيش أبدًا..",
+            "أنتِ نقطة ضعفي الوحيدة.. وأجمل حاجة حصلتلي.",
+            "غموض.. اسمك لوحده بيعمل فيا حركات مقدرش أوصفها.",
+            "عايز أقولك إنك ملكتي كل حاجة فيا.. روحي وعقلي وقلبي."
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('love-quote').innerText = quotes[randomIndex];
+        }
+
+        function generateSurprise() {
+            const randomIndex = Math.floor(Math.random() * surprises.length);
+            document.getElementById('surprise-msg').innerText = surprises[randomIndex];
+        }
+    </script>
+</body>
+</html>
